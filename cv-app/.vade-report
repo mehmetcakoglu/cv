@@ -1,48 +1,43 @@
-# Vercel Web Analytics Implementation
+# Vercel Speed Insights Implementation
 
-Successfully implemented Vercel Web Analytics for the Vue 3 + Vite CV application.
+Successfully implemented Vercel Speed Insights for the Vue 3 + Vite CV application.
 
 ## Changes Made
 
-### Modified Files:
+### 1. Installed Package
+- Added `@vercel/speed-insights` version 1.3.1 to the project dependencies
+- Updated `package.json` and `package-lock.json` with the new dependency
 
-1. **src/App.vue**
-   - Added import for `Analytics` component from `@vercel/analytics/vue`
-   - Added `<Analytics />` component to the template at the top level
-   - This enables automatic tracking of page views and visitor analytics
+### 2. Integrated SpeedInsights Component
+- Modified `src/App.vue` to import the `SpeedInsights` component from `@vercel/speed-insights/vue`
+- Added the `<SpeedInsights />` component to the template, placing it alongside the existing `<Analytics />` component
 
-2. **package.json**
-   - Added `@vercel/analytics` v1.6.1 to dependencies
-
-3. **package-lock.json**
-   - Updated lockfile with new dependency tree for @vercel/analytics
+### Files Modified
+- **package.json** - Added `@vercel/speed-insights` dependency
+- **package-lock.json** - Updated with new package and its dependencies
+- **src/App.vue** - Added SpeedInsights import and component
 
 ## Implementation Details
 
-Following the official Vercel Web Analytics documentation for Vue.js applications:
-- Installed the `@vercel/analytics` package using npm
-- Imported the Analytics component from `@vercel/analytics/vue` in App.vue
-- Added the `<Analytics />` component at the top of the template section
-- The component automatically enables route tracking when using vue-router (which is already installed in this project)
+Following the Vercel Speed Insights documentation for Vue applications, the SpeedInsights component was added to the root App component. This ensures that Speed Insights will track performance metrics across all routes and pages of the application.
+
+The implementation follows the Vue framework-specific instructions:
+- Imported `SpeedInsights` from `@vercel/speed-insights/vue`
+- Added the component in the template at the root level
 
 ## Verification
 
-- Build completed successfully with `npm run build`
-- TypeScript compilation passed without errors
-- Production bundle generated correctly (232.13 kB gzipped)
-- All existing functionality preserved
+The implementation was verified by:
+1. Successfully installing the package via npm
+2. Building the project with `npm run build` - build completed successfully with no errors
+3. Confirming all changes are properly tracked in git
 
-## Next Steps for Deployment
+## Next Steps
 
-Once deployed to Vercel:
-1. Enable Web Analytics in the Vercel dashboard for this project
-2. Visit the Analytics tab in the project settings
-3. After deployment, verify the analytics tracking is working by checking for network requests to `/_vercel/insights/view` in the browser's Network tab
-4. Wait a few days for data to accumulate to see visitor analytics and page view metrics
+After deployment to Vercel:
+1. Enable Speed Insights in the Vercel dashboard for this project
+2. The tracking script will be available at `/_vercel/speed-insights/script.js`
+3. Performance metrics will start being collected after deployment
+4. View data in the Speed Insights tab of the Vercel dashboard
 
-## Technical Notes
-
-- The Analytics component is framework-aware and will automatically track route changes in Vue applications
-- No additional configuration is required for basic analytics tracking
-- The component is lightweight and won't impact the application's performance
-- Privacy-compliant and GDPR-ready analytics solution
+The application is now ready to track real-world performance metrics including Core Web Vitals (LCP, FID, CLS) and other speed-related metrics once deployed to Vercel.
