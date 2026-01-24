@@ -363,7 +363,7 @@ onMounted(() => {
                 <p class="text-zinc-400 font-bold text-xs uppercase tracking-widest mt-2">{{ exp.company }}</p>
               </div>
               <span class="text-[10px] font-black font-mono text-zinc-500 uppercase mt-2 md:mt-2">{{ exp.period
-                }}</span>
+              }}</span>
             </div>
             <p class="text-zinc-500 text-xl font-medium leading-[1.2] max-w-2xl mb-8 tracking-tight italic">"{{
               exp.description }}"</p>
@@ -412,8 +412,8 @@ onMounted(() => {
       </div>
 
       <!-- Experience Log (Shifted Footer) -->
-      <div ref="cards" @click="store.setTheme('story')"
-        class="md:col-span-8 bg-white/5 backdrop-blur-2xl border border-white/10 p-12 md:p-24 rounded-[5rem] text-center flex flex-col items-center justify-center group cursor-pointer hover:bg-white/10 transition-all overflow-hidden relative shadow-2xl hover:shadow-violet-500/20">
+      <div @click="store.setTheme('story')"
+        class="md:col-span-8 bg-white/5 backdrop-blur-2xl border border-white/10 p-12 md:p-24 rounded-[5rem] text-center flex flex-col items-center justify-center group cursor-pointer hover:bg-white/10 transition-all overflow-hidden relative shadow-2xl hover:shadow-violet-500/20 footer-animate">
         <div class="relative z-10">
           <MousePointer2 class="w-12 h-12 text-violet-500 mx-auto mb-10 animate-bounce" />
           <h2 class="text-5xl md:text-8xl font-black tracking-tighter uppercase leading-[0.8] mb-12 italic">
@@ -432,6 +432,22 @@ onMounted(() => {
 </template>
 
 <style scoped>
+.footer-animate {
+  animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.5s backwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @keyframes liquid-slow {
 
   0%,
