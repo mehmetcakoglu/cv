@@ -69,7 +69,10 @@
   "skills": {
     "frontend": ["Web Development", "JavaScript", "ASP.NET", "UI/UX Design"],
     "backend": ["C#", ".NET", "T-SQL", "Cloud Computing", "Solution Architecture"],
-    "tools": ["Microsoft SQL Server", "DevOps Specialist", "Database Administration", "Project Planning"]
+    "Infrastructure": ["DevOps", "Database Administration", "Windows/Linux Server Management", 
+      "Proxmox Hypervisor", "Docker & Kubernetes", "CI/CD", "Jenkins", "Git" 
+    ],
+    "tools": ["Project Planning", "ETL Tools", "Data Migration"]
   },
   "projects": [
     {
