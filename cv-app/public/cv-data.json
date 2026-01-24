@@ -1,0 +1,83 @@
+{
+  "profile": {
+    "name": "Mehmet Çakoğlu",
+    "title": "Solution Architect",
+    "summary": "30 Years Experienced Full Stack IT Professional. Specialist in solution architecture, data engineering, and software management with a deep background in database administration and DevOps.",
+    "email": "mehmetcakoglu@gmail.com",
+    "phone": "+90 535 220 04 04",
+    "location": "Istanbul, Turkey",
+    "linkedin": "https://www.linkedin.com/in/mehmetcakoglu/",
+    "github": "https://github.com/mehmetcakoglu",
+    "website": "https://mehmetcakoglu.com"
+  },
+  "experience": [
+    {
+      "id": 1,
+      "role": "Solution Architect",
+      "company": "Simeranya Dijital Teknoloji",
+      "period": "Oct 2024 - Present",
+      "description": "Leading architectural design and technical strategy. Focus on solution architecture, project management, and DevOps integration.",
+      "technologies": ["Solution Architecture", "DevOps", "Project Management"]
+    },
+    {
+      "id": 2,
+      "role": "Senior Data Engineer",
+      "company": "H3M Analytics",
+      "period": "Jun 2023 - Oct 2024",
+      "description": "Engineered complex data pipelines and managed big data infrastructures with a focus on database performance.",
+      "technologies": ["Data Engineering", "Databases", "Big Data"]
+    },
+    {
+      "id": 3,
+      "role": "Software Development Manager",
+      "company": "Fuzul Holding",
+      "period": "Nov 2018 - Jan 2023",
+      "description": "Managed full-stack software teams and led technical transitions for multiple large-scale projects.",
+      "technologies": ["Software Management", "ASP.NET", "Team Leadership"]
+    },
+    {
+      "id": 4,
+      "role": "Database Administrator / Data Engineer",
+      "company": "PlusOneMinusOne",
+      "period": "Mar 2015 - Oct 2018",
+      "description": "Specialized in Microsoft SQL Server administration, infrastructure automation, and data engineering.",
+      "technologies": ["SQL Server", "IT Management", "Infrastructure Automation"]
+    },
+    {
+      "id": 5,
+      "role": "Information Technologies Manager",
+      "company": "Wall Street Institute Turkey",
+      "period": "Jul 2010 - Dec 2011",
+      "description": "Overseeing all IT operations, network infrastructure, and software management within the organization.",
+      "technologies": ["IT Management", "Infrastructure", "Software Strategy"]
+    }
+  ],
+  "education": [
+    {
+      "id": 1,
+      "degree": "Business Management (Bachelor's)",
+      "school": "Anadolu Üniversitesi",
+      "year": "2005 - 2008"
+    },
+    {
+      "id": 2,
+      "degree": "Information Management (Associate's)",
+      "school": "Anadolu Üniversitesi",
+      "year": "2002 - 2005"
+    }
+  ],
+  "skills": {
+    "frontend": ["Web Development", "JavaScript", "ASP.NET", "UI/UX Design"],
+    "backend": ["C#", ".NET", "T-SQL", "Cloud Computing", "Solution Architecture"],
+    "tools": ["Microsoft SQL Server", "DevOps Specialist", "Database Administration", "Project Planning"]
+  },
+  "projects": [
+    {
+      "id": 1,
+      "name": "Full Stack Architecture",
+      "description": "Designed and managed high-scale enterprise software systems and data migrations.",
+      "link": "#",
+      "tags": ["Architecture", "SQL Server"]
+    }
+  ]
+}
