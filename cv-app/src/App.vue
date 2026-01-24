@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { onMounted } from 'vue';
 import { useCVStore } from './stores/useCVStore';
+import { Analytics } from '@vercel/analytics/vue';
 import ThemeSwitcher from './components/shared/ThemeSwitcher.vue';
 import ScrollToTop from './components/shared/ScrollToTop.vue';
 import MagneticCursor from './components/shared/MagneticCursor.vue';
@@ -16,6 +17,7 @@ onMounted(() => {
 </script>
 
 <template>
+  <Analytics />
   <div v-if="store.cvData" class="min-h-screen">
     <MagneticCursor />
     <ThemeSwitcher />
