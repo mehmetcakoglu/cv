@@ -24,8 +24,6 @@ dist-ssr
 *.sw?
 
 # Agent temporary files
-.agent/
-.gemini/
 *.md-task
 tasks/
 ARCHITECTURE.md
