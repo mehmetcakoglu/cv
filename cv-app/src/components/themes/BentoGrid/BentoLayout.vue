@@ -326,7 +326,7 @@ onMounted(() => {
           </div>
 
           <div class="flex flex-wrap gap-2.5">
-            <span v-for="skill in [...data.skills.frontend, ...data.skills.backend, ...data.skills.tools]" :key="skill"
+            <span v-for="skill in Object.values(data.skills).flat()" :key="skill"
               class="px-5 py-3 bg-zinc-900 border border-white/5 rounded-2xl text-[11px] font-black uppercase tracking-widest hover:bg-white hover:text-black hover:scale-105 transition-all cursor-default">
               {{ skill }}
             </span>
@@ -359,7 +359,7 @@ onMounted(() => {
                 <p class="text-zinc-400 font-bold text-xs uppercase tracking-widest mt-2">{{ exp.company }}</p>
               </div>
               <span class="text-[10px] font-black font-mono text-zinc-500 uppercase mt-2 md:mt-2">{{ exp.period
-                }}</span>
+              }}</span>
             </div>
             <p class="text-zinc-500 text-xl font-medium leading-[1.2] max-w-2xl mb-8 tracking-tight italic">"{{
               exp.description }}"</p>
