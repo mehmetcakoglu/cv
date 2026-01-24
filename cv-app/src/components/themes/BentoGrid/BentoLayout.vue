@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { CVData } from '../../../stores/useCVStore';
+
 import { ref, onMounted } from 'vue';
 import gsap from 'gsap';
 import {
@@ -15,7 +15,11 @@ import {
   Quote
 } from 'lucide-vue-next';
 
+import { useCVStore } from '../../../stores/useCVStore';
+import type { CVData } from '../../../stores/useCVStore';
+
 const props = defineProps<{ data: CVData }>();
+const store = useCVStore();
 
 // Animation Refs
 const cards = ref<HTMLElement[]>([]);
@@ -408,7 +412,7 @@ onMounted(() => {
       </div>
 
       <!-- Experience Log (Shifted Footer) -->
-      <div ref="cards"
+      <div ref="cards" @click="store.setTheme('story')"
         class="md:col-span-8 bg-white/5 backdrop-blur-2xl border border-white/10 p-12 md:p-24 rounded-[5rem] text-center flex flex-col items-center justify-center group cursor-pointer hover:bg-white/10 transition-all overflow-hidden relative shadow-2xl hover:shadow-violet-500/20">
         <div class="relative z-10">
           <MousePointer2 class="w-12 h-12 text-violet-500 mx-auto mb-10 animate-bounce" />
