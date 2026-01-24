@@ -22,3 +22,13 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Agent temporary files
+.agent/
+.gemini/
+*.md-task
+tasks/
+ARCHITECTURE.md
+CODEBASE.md
+PROGRESS.md
+
