@@ -363,7 +363,7 @@ onMounted(() => {
                 <p class="text-zinc-400 font-bold text-xs uppercase tracking-widest mt-2">{{ exp.company }}</p>
               </div>
               <span class="text-[10px] font-black font-mono text-zinc-500 uppercase mt-2 md:mt-2">{{ exp.period
-              }}</span>
+                }}</span>
             </div>
             <p class="text-zinc-500 text-xl font-medium leading-[1.2] max-w-2xl mb-8 tracking-tight italic">"{{
               exp.description }}"</p>
@@ -418,7 +418,7 @@ onMounted(() => {
           <MousePointer2 class="w-12 h-12 text-violet-500 mx-auto mb-10 animate-bounce" />
           <h2 class="text-5xl md:text-8xl font-black tracking-tighter uppercase leading-[0.8] mb-12 italic">
             Shift Your<br><span
-              class="text-white opacity-100 group-hover:text-violet-400 transition-colors duration-700">Dimension</span>
+              class="text-zinc-100 opacity-100 group-hover:text-violet-400 transition-colors duration-700">Dimension</span>
           </h2>
           <p class="text-zinc-400 font-black uppercase tracking-[0.8em] text-[10px]">Mehmet Çakoğlu // Infinite Loop</p>
         </div>
