@@ -12,8 +12,7 @@ import {
   Sparkles,
   Globe,
   MousePointer2,
-  Quote,
-  Layers
+  Quote
 } from 'lucide-vue-next';
 
 const props = defineProps<{ data: CVData }>();
@@ -33,7 +32,7 @@ const quotes = [
   "Design for the user, engineer for the future.",
   "Scalability is a mindset, not just a metric."
 ];
-const currentQuote = ref(quotes[0]);
+
 const displayedQuote = ref("");
 const yearsCount = ref(0);
 
@@ -360,7 +359,7 @@ onMounted(() => {
                 <p class="text-zinc-400 font-bold text-xs uppercase tracking-widest mt-2">{{ exp.company }}</p>
               </div>
               <span class="text-[10px] font-black font-mono text-zinc-500 uppercase mt-2 md:mt-2">{{ exp.period
-                }}</span>
+              }}</span>
             </div>
             <p class="text-zinc-500 text-xl font-medium leading-[1.2] max-w-2xl mb-8 tracking-tight italic">"{{
               exp.description }}"</p>
