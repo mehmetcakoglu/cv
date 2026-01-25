@@ -67,7 +67,7 @@
     }
   ],
   "skills": {
-    "frontend": ["Web Development", "JavaScript", "ASP.NET", "UI/UX Design"],
+    "frontend": ["Web Development", "Python", "Django", "Flask", "FastAPI", "Vue.js", "JavaScript", "ASP.NET", "UI/UX Design"],
     "backend": ["C#", ".NET", "T-SQL", "Cloud Computing", "Solution Architecture"],
     "Infrastructure": ["DevOps", "Database Administration", "Windows/Linux Server Management", 
       "Proxmox Hypervisor", "Docker & Kubernetes", "CI/CD", "Jenkins", "Git" 
