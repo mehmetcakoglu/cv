@@ -3,7 +3,7 @@ import type { CVData } from '../../../stores/useCVStore';
 import { ref, onMounted } from 'vue';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-import { Linkedin, Github, Zap, Star, Globe2, ArrowRight } from 'lucide-vue-next';
+import { Linkedin, Github, Zap, Star, Globe2, ArrowRight, Download } from 'lucide-vue-next';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -63,41 +63,59 @@ onMounted(() => {
     }
   });
 });
+
+const handlePrint = () => {
+  window.print();
+};
 </script>
 
 <template>
   <div ref="container"
-    class="min-h-screen bg-[#fafafa] text-[#050505] font-sans selection:bg-rose-500 selection:text-white overflow-x-hidden">
+    class="min-h-screen bg-[#fafafa] text-[#050505] font-sans selection:bg-rose-500 selection:text-white overflow-x-hidden print:overflow-visible print:bg-white">
+
+    <!-- Export Button -->
+    <button @click="handlePrint"
+      class="fixed bottom-28 right-8 z-[100] w-16 h-16 bg-rose-500 text-white rounded-none border-2 border-white flex items-center justify-center hover:bg-rose-600 hover:scale-105 active:scale-95 transition-all group no-print shadow-[4px_4px_0px_black]">
+      <Download class="w-7 h-7 group-hover:-translate-y-1 transition-transform" />
+      <div
+        class="absolute -top-12 right-0 bg-white text-black text-[10px] font-black uppercase py-1 px-3 rounded border border-black/10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap tracking-widest">
+        Export PDF
+      </div>
+    </button>
 
     <!-- Hero / The Cover -->
     <header
-      class="min-h-screen relative flex flex-col justify-center px-10 md:px-24 py-40 max-w-[1700px] mx-auto overflow-hidden">
+      class="min-h-screen relative flex flex-col justify-center px-10 md:px-24 py-40 max-w-[1700px] mx-auto overflow-hidden print:min-h-0 print:py-20 print:px-0">
       <div
-        class="absolute -right-20 top-0 text-[30rem] font-black text-zinc-100/50 -z-50 leading-none select-none italic pointer-events-none">
+        class="absolute -right-20 top-0 text-[30rem] font-black text-zinc-100/50 -z-50 leading-none select-none italic pointer-events-none print:hidden">
         MAX
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 relative z-10">
         <div class="lg:col-span-12 space-y-12">
-          <div class="flex items-center gap-6 group">
+          <div class="flex items-center gap-6 group print:hidden">
             <div class="h-[3px] w-24 bg-black group-hover:w-40 transition-all duration-700"></div>
             <span class="text-sm font-black uppercase tracking-[0.5em] animate-pulse">Issue No. 25 // 1997-2026</span>
           </div>
 
           <h1
-            class="skew-item text-[clamp(4rem,18vw,20rem)] font-black tracking-[-0.05em] leading-[0.75] uppercase italic will-change-transform translate-z-0">
+            class="skew-item text-[clamp(4rem,18vw,20rem)] font-black tracking-[-0.05em] leading-[0.75] uppercase italic will-change-transform translate-z-0 print:text-8xl print:mb-8 print:transform-none">
             {{ data.profile.name.split(' ')[0] }}<br>
-            <span class="text-transparent webkit-text-stroke-2">Çakoğlu</span>
+            <span
+              class="text-transparent webkit-text-stroke-2 print:text-black print:webkit-text-stroke-0">Çakoğlu</span>
           </h1>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-end">
-            <p class="reveal-text text-3xl md:text-5xl font-black italic tracking-tighter leading-[0.9] max-w-2xl">
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 gap-12 items-end print:flex print:flex-col print:items-start print:gap-4">
+            <p
+              class="reveal-text text-3xl md:text-5xl font-black italic tracking-tighter leading-[0.9] max-w-2xl print:text-2xl print:leading-tight">
               {{ data.profile.summary }}
             </p>
-            <div class="flex flex-col items-end">
-              <Zap class="w-16 h-16 text-rose-500 mb-8 animate-bounce" />
-              <p class="text-xs font-black uppercase tracking-widest text-zinc-400">Principal Solutions Lead</p>
-              <p class="text-2xl font-black uppercase">{{ data.profile.title }}</p>
+            <div class="flex flex-col items-end print:items-start">
+              <Zap class="w-16 h-16 text-rose-500 mb-8 animate-bounce print:hidden" />
+              <p class="text-xs font-black uppercase tracking-widest text-zinc-400 print:text-zinc-500">Principal
+                Solutions Lead</p>
+              <p class="text-2xl font-black uppercase print:text-xl">{{ data.profile.title }}</p>
             </div>
           </div>
         </div>
@@ -105,46 +123,52 @@ onMounted(() => {
     </header>
 
     <!-- Editorial Feature: The Body -->
-    <section class="bg-[#050505] text-white py-60 px-10 md:px-24">
+    <section
+      class="bg-[#050505] text-white py-60 px-10 md:px-24 print:bg-white print:text-black print:py-10 print:px-0">
       <div class="max-w-7xl mx-auto">
-        <div class="flex flex-col md:flex-row items-baseline justify-between mb-40 gap-12">
-          <h2 class="text-6xl md:text-9xl font-black tracking-tighter italic uppercase leading-none">The Career<br><span
-              class="text-rose-500 underline decoration-8 underline-offset-[-10px]">Chronicles</span></h2>
-          <div class="text-right">
+        <div class="flex flex-col md:flex-row items-baseline justify-between mb-40 gap-12 print:mb-12">
+          <h2 class="text-6xl md:text-9xl font-black tracking-tighter italic uppercase leading-none print:text-5xl">The
+            Career<br><span
+              class="text-rose-500 underline decoration-8 underline-offset-[-10px] print:decoration-4">Chronicles</span>
+          </h2>
+          <div class="text-right print:hidden">
             <Globe2 class="w-10 h-10 text-white animate-spin-slow mb-4 ml-auto" />
             <p class="text-xs font-black uppercase tracking-widest text-zinc-500">Documenting 2.5 Decades</p>
           </div>
         </div>
 
-        <div class="space-y-60">
+        <div class="space-y-60 print:space-y-12">
           <div v-for="(exp, index) in data.experience" :key="exp.id"
-            class="grid grid-cols-1 lg:grid-cols-12 gap-16 group">
+            class="grid grid-cols-1 lg:grid-cols-12 gap-16 group print:gap-4 print:page-break-inside-avoid">
             <!-- Large Vertical Number -->
-            <div class="lg:col-span-2 relative">
+            <div class="lg:col-span-2 relative print:hidden">
               <span
                 class="parallax-item absolute -top-20 left-0 text-[10rem] font-black italic text-zinc-800/40 group-hover:text-rose-500/20 transition-colors">
                 0{{ index + 1 }}
               </span>
             </div>
 
-            <div class="lg:col-span-10 skew-item will-change-transform translate-z-0">
-              <div class="flex flex-col md:flex-row md:items-baseline gap-4 mb-8">
+            <div class="lg:col-span-10 skew-item will-change-transform translate-z-0 print:transform-none">
+              <div class="flex flex-col md:flex-row md:items-baseline gap-4 mb-8 print:mb-2">
                 <h3
-                  class="text-5xl md:text-8xl font-black tracking-tighter group-hover:translate-x-8 transition-transform duration-700">
+                  class="text-5xl md:text-8xl font-black tracking-tighter group-hover:translate-x-8 transition-transform duration-700 print:text-3xl print:transform-none">
                   {{ exp.role }}
                 </h3>
                 <span class="text-xs font-black uppercase tracking-[0.4em] text-rose-500">{{ exp.period }}</span>
               </div>
 
-              <p class="text-2xl font-black uppercase tracking-tight text-white mb-10">{{ exp.company }}</p>
+              <p
+                class="text-2xl font-black uppercase tracking-tight text-white mb-10 print:text-black print:text-lg print:mb-4">
+                {{ exp.company }}</p>
 
-              <p class="text-xl md:text-3xl font-medium text-zinc-400 leading-[1.1] tracking-tight max-w-5xl mb-12">
+              <p
+                class="text-xl md:text-3xl font-medium text-zinc-400 leading-[1.1] tracking-tight max-w-5xl mb-12 print:text-zinc-600 print:text-base print:mb-4">
                 {{ exp.description }}
               </p>
 
-              <div class="flex flex-wrap gap-4">
+              <div class="flex flex-wrap gap-4 print:gap-2">
                 <span v-for="tech in exp.technologies" :key="tech"
-                  class="px-3 py-1 bg-white/5 border border-white/10 text-[10px] font-black uppercase tracking-widest group-hover:bg-rose-500 transition-colors">
+                  class="px-3 py-1 bg-white/5 border border-white/10 text-[10px] font-black uppercase tracking-widest group-hover:bg-rose-500 transition-colors print:bg-zinc-100 print:text-black print:border-zinc-200">
                   #{{ tech }}
                 </span>
               </div>
@@ -155,7 +179,7 @@ onMounted(() => {
     </section>
 
     <!-- Dynamic Interlude -->
-    <section class="py-40 bg-zinc-100 overflow-hidden">
+    <section class="py-40 bg-zinc-100 overflow-hidden print:hidden">
       <div class="flex items-center gap-10 animate-marquee whitespace-nowrap">
         <span v-for="n in 5" :key="n"
           class="text-8xl md:text-[15rem] font-black uppercase tracking-tighter text-zinc-200 group-hover:text-black transition-colors">
@@ -165,29 +189,34 @@ onMounted(() => {
     </section>
 
     <!-- Technical Index -->
-    <section class="py-60 px-10 md:px-24 bg-white">
+    <section class="py-60 px-10 md:px-24 bg-white print:py-10 print:px-0 print:page-break-before-always">
       <div class="max-w-7xl mx-auto">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-24">
-          <div class="lg:col-span-4 sticky top-40">
-            <Star class="w-20 h-20 text-rose-500 fill-rose-500 mb-12 animate-pulse" />
-            <h2 class="text-5xl font-black tracking-tighter uppercase italic leading-none">The Skill<br>Inventory</h2>
-            <div class="mt-12 space-y-4">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-24 print:gap-12">
+          <div class="lg:col-span-4 sticky top-40 print:relative print:top-0 print:mb-10">
+            <Star class="w-20 h-20 text-rose-500 fill-rose-500 mb-12 animate-pulse print:hidden" />
+            <h2 class="text-5xl font-black tracking-tighter uppercase italic leading-none print:text-4xl">The
+              Skill<br>Inventory</h2>
+            <div class="mt-12 space-y-4 print:mt-4">
               <p class="text-xs font-black uppercase tracking-widest text-zinc-400">Total Competencies: 50+</p>
-              <p class="text-sm font-medium leading-relaxed max-w-xs">A comprehensive breakdown of technical mastery
-                evolved since the dawn of modern web engineering.</p>
+              <p class="text-sm font-medium leading-relaxed max-w-xs print:text-zinc-600">A comprehensive breakdown of
+                technical mastery evolved since the dawn of modern web engineering.</p>
             </div>
           </div>
 
-          <div class="lg:col-span-8 space-y-24">
-            <div v-for="(group, name) in data.skills" :key="name" class="border-b-4 border-black pb-12 group/skill">
-              <div class="flex justify-between items-end mb-8 group-hover/skill:pl-6 transition-all">
-                <h3 class="text-4xl font-black uppercase tracking-tighter group-hover/skill:text-rose-500">{{ name }}
+          <div class="lg:col-span-8 space-y-24 print:space-y-8">
+            <div v-for="(group, name) in data.skills" :key="name"
+              class="border-b-4 border-black pb-12 group/skill print:border-b-2 print:pb-6 print:page-break-inside-avoid">
+              <div
+                class="flex justify-between items-end mb-8 group-hover/skill:pl-6 transition-all print:mb-4 print:group-hover/skill:pl-0">
+                <h3
+                  class="text-4xl font-black uppercase tracking-tighter group-hover/skill:text-rose-500 print:text-xl">
+                  {{ name }}
                 </h3>
-                <ArrowRight class="w-8 h-8 group-hover/skill:translate-x-4 transition-transform" />
+                <ArrowRight class="w-8 h-8 group-hover/skill:translate-x-4 transition-transform print:hidden" />
               </div>
-              <div class="flex flex-wrap gap-x-12 gap-y-6">
+              <div class="flex flex-wrap gap-x-12 gap-y-6 print:gap-x-4 print:gap-y-2">
                 <span v-for="skill in group" :key="skill"
-                  class="text-2xl md:text-5xl font-bold tracking-tight hover:italic transition-all cursor-default">
+                  class="text-2xl md:text-5xl font-bold tracking-tight hover:italic transition-all cursor-default print:text-sm print:font-semibold">
                   {{ skill }}
                 </span>
               </div>
@@ -198,28 +227,29 @@ onMounted(() => {
     </section>
 
     <!-- Connect / The Back Cover -->
-    <footer class="bg-black text-white py-60 px-10 md:px-24 text-center relative overflow-hidden">
+    <footer
+      class="bg-black text-white py-60 px-10 md:px-24 text-center relative overflow-hidden print:bg-white print:text-black print:py-10 print:px-0">
       <div
-        class="parallax-item absolute top-10 left-10 text-[20rem] font-black text-white/[0.02] italic leading-none pointer-events-none uppercase">
+        class="parallax-item absolute top-10 left-10 text-[20rem] font-black text-white/[0.02] italic leading-none pointer-events-none uppercase print:hidden">
         ENGAGE
       </div>
 
-      <div class="max-w-4xl mx-auto space-y-20 relative z-10">
-        <h2 class="text-7xl md:text-[12rem] font-black tracking-tighter uppercase italic leading-[0.8]">
+      <div class="max-w-4xl mx-auto space-y-20 relative z-10 print:space-y-10">
+        <h2 class="text-7xl md:text-[12rem] font-black tracking-tighter uppercase italic leading-[0.8] print:text-5xl">
           Initiate<br><span class="text-rose-500">Contact</span></h2>
-        <div class="flex flex-col items-center gap-12">
+        <div class="flex flex-col items-center gap-12 print:gap-4 print:items-start">
           <a :href="'mailto:' + data.profile.email"
-            class="text-3xl md:text-6xl font-black underline decoration-rose-500 decoration-8 underline-offset-10 hover:text-rose-500 transition-colors break-all">
+            class="text-3xl md:text-6xl font-black underline decoration-rose-500 decoration-8 underline-offset-10 hover:text-rose-500 transition-colors break-all print:text-xl print:decoration-4 print:underline-offset-4">
             {{ data.profile.email }}
           </a>
-          <div class="flex gap-16">
+          <div class="flex gap-16 print:gap-8">
             <a :href="data.profile.linkedin" target="_blank"
-              class="text-xl font-black uppercase tracking-widest border-b-2 border-white hover:pb-4 transition-all flex items-center gap-2">
-              <Linkedin class="w-5 h-5" /> LinkedIn
+              class="text-xl font-black uppercase tracking-widest border-b-2 border-white hover:pb-4 transition-all flex items-center gap-2 print:text-xs print:border-black">
+              <Linkedin class="w-5 h-5 print:w-4 print:h-4" /> LinkedIn
             </a>
             <a :href="data.profile.github" target="_blank"
-              class="text-xl font-black uppercase tracking-widest border-b-2 border-white hover:pb-4 transition-all flex items-center gap-2">
-              <Github class="w-5 h-5" /> Github
+              class="text-xl font-black uppercase tracking-widest border-b-2 border-white hover:pb-4 transition-all flex items-center gap-2 print:text-xs print:border-black">
+              <Github class="w-5 h-5 print:w-4 print:h-4" /> Github
             </a>
           </div>
         </div>
@@ -227,7 +257,7 @@ onMounted(() => {
 
       <!-- Colophon -->
       <div
-        class="mt-80 pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-[10px] font-black uppercase tracking-[0.8em] text-zinc-600 gap-8">
+        class="mt-80 pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-[10px] font-black uppercase tracking-[0.8em] text-zinc-600 gap-8 print:mt-10 print:border-zinc-200 print:tracking-widest">
         <span>Mehmet Çakoğlu // ARCHITECTURAL INDEX</span>
         <span>© 1997-2026 ISTANBUL-HQ</span>
       </div>
@@ -266,5 +296,38 @@ onMounted(() => {
 
 .animate-marquee {
   animation: marquee 40s linear infinite;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  header,
+  section,
+  footer {
+    page-break-inside: auto;
+  }
+
+  h1,
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+
+  .webkit-text-stroke-0 {
+    -webkit-text-stroke: 0;
+  }
+
+  /* Reset body cursor for print save dialog */
+  :global(body) {
+    cursor: default !important;
+  }
+
+  /* Force white background for all elements */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
 }
 </style>
