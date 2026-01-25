@@ -70,7 +70,7 @@ const handlePrint = () => {
 </script>
 
 <template>
-  <div ref="container"
+  <div ref="container" lang="en"
     class="min-h-screen bg-[#fafafa] text-[#050505] font-sans selection:bg-rose-500 selection:text-white overflow-x-hidden print:overflow-visible print:bg-white">
 
     <!-- Export Button -->

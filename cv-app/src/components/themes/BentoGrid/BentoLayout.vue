@@ -176,7 +176,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div
+  <div lang="en"
     class="min-h-screen text-white p-6 md:p-12 lg:p-16 font-sans selection:bg-fuchsia-500/30 overflow-hidden relative">
 
     <!-- Aurora V2: MacOS Aurora (Leopard/Snow Leopard Vibe) -->
@@ -230,6 +230,9 @@ onMounted(() => {
             <span
               class="bg-gradient-to-br from-zinc-100 via-pink-200 to-fuchsia-200 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(255,255,255,0.2)]">
               {{ data.profile.name }}
+            </span>
+            <span class="block text-[clamp(1rem,2vw,2rem)] tracking-[0.3em] uppercase text-zinc-400 mt-6 font-bold opacity-80">
+              {{ data.profile.title }}
             </span>
           </h1>
 

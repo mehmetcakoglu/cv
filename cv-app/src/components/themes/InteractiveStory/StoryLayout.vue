@@ -114,7 +114,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="min-h-screen bg-black text-white font-sans selection:bg-rose-500/40 relative overflow-x-hidden">
+  <div lang="en" class="min-h-screen bg-black text-white font-sans selection:bg-rose-500/40 relative overflow-x-hidden">
 
     <!-- Reactive Starfield Background -->
     <canvas ref="canvas" class="fixed inset-0 z-0 pointer-events-none opacity-40"></canvas>
