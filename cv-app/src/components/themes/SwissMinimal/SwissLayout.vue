@@ -99,7 +99,7 @@ const handlePrint = () => {
           </div>
 
           <h1
-            class="skew-item text-[clamp(4rem,18vw,20rem)] font-black tracking-[-0.05em] leading-[0.75] uppercase italic will-change-transform translate-z-0 print:text-8xl print:mb-8 print:transform-none">
+            class="skew-item text-[clamp(2.5rem,15vw,20rem)] font-black tracking-[-0.05em] leading-[0.75] uppercase italic will-change-transform translate-z-0 print:text-8xl print:mb-8 print:transform-none">
             {{ data.profile.name.split(' ')[0] }}<br>
             <span
               class="text-transparent webkit-text-stroke-2 print:text-black print:webkit-text-stroke-0">Çakoğlu</span>
@@ -127,7 +127,7 @@ const handlePrint = () => {
       class="bg-[#050505] text-white py-60 px-10 md:px-24 print:bg-white print:text-black print:py-10 print:px-0">
       <div class="max-w-7xl mx-auto">
         <div class="flex flex-col md:flex-row items-baseline justify-between mb-40 gap-12 print:mb-12">
-          <h2 class="text-6xl md:text-9xl font-black tracking-tighter italic uppercase leading-none print:text-5xl">The
+          <h2 class="text-[clamp(2.5rem,8vw,8rem)] font-black tracking-tighter italic uppercase leading-none print:text-5xl">The
             Career<br><span
               class="text-rose-500 underline decoration-8 underline-offset-[-10px] print:decoration-4">Chronicles</span>
           </h2>
@@ -239,7 +239,7 @@ const handlePrint = () => {
           Initiate<br><span class="text-rose-500">Contact</span></h2>
         <div class="flex flex-col items-center gap-12 print:gap-4 print:items-start">
           <a :href="'mailto:' + data.profile.email"
-            class="text-3xl md:text-6xl font-black underline decoration-rose-500 decoration-8 underline-offset-10 hover:text-rose-500 transition-colors break-all print:text-xl print:decoration-4 print:underline-offset-4">
+            class="text-xl md:text-6xl font-black underline decoration-rose-500 decoration-8 underline-offset-10 hover:text-rose-500 transition-colors break-words print:text-xl print:decoration-4 print:underline-offset-4">
             {{ data.profile.email }}
           </a>
           <div class="flex gap-16 print:gap-8">

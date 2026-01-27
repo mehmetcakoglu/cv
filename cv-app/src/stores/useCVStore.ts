@@ -62,6 +62,7 @@ export const useCVStore = defineStore('cv', () => {
 
   function setTheme(theme: Theme) {
     currentTheme.value = theme;
+    window.scrollTo({ top: 0, behavior: 'instant' });
   }
 
   return { currentTheme, cvData, loading, loadData, setTheme };

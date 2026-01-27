@@ -12,7 +12,7 @@ const themes = [
 </script>
 
 <template>
-  <div class="fixed top-8 right-8 z-[100] no-print">
+  <div class="fixed top-4 md:top-8 left-1/2 -translate-x-1/2 md:left-auto md:right-8 md:translate-x-0 z-[100] no-print">
     <div
       class="flex gap-1 p-1 bg-black/80 border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.4)] rounded-[1.5rem] transition-all duration-500 hover:shadow-[0_12px_48px_rgba(0,0,0,0.6)]">
       <button v-for="theme in themes" :key="theme.id" @click="store.setTheme(theme.id)"

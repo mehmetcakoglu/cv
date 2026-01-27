@@ -15,6 +15,9 @@ const store = useCVStore();
 onMounted(() => {
   store.loadData();
 });
+const handleBeforeEnter = () => {
+  window.scrollTo(0, 0);
+};
 </script>
 
 <template>
@@ -28,7 +31,7 @@ onMounted(() => {
     <transition mode="out-in" enter-active-class="transition duration-700 ease-out"
       enter-from-class="opacity-0 scale-95 blur-xl" enter-to-class="opacity-100 scale-100 blur-0"
       leave-active-class="transition duration-500 ease-in" leave-from-class="opacity-100 blur-0"
-      leave-to-class="opacity-0 blur-2xl">
+      leave-to-class="opacity-0 blur-2xl" @before-enter="handleBeforeEnter">
       <component
         :is="store.currentTheme === 'bento' ? BentoGrid : store.currentTheme === 'swiss' ? SwissMinimal : InteractiveStory"
         :data="store.cvData" />

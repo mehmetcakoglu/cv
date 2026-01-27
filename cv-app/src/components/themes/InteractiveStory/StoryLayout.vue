@@ -129,7 +129,7 @@ onUnmounted(() => {
           Neural Signal Established // 1997
         </div>
 
-        <h1 class="text-[clamp(5rem,20vw,16rem)] font-black tracking-[-0.06em] leading-[0.7] uppercase relative">
+        <h1 class="text-[clamp(3.5rem,18vw,16rem)] font-black tracking-[-0.06em] leading-[0.7] uppercase relative">
           <span
             class="absolute -top-10 left-1/2 -translate-x-1/2 text-2xl font-black italic tracking-[1em] text-rose-500 opacity-50">Odyssey</span>
           Infinite
@@ -155,7 +155,7 @@ onUnmounted(() => {
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-20">
         <div class="lg:col-span-12 flex items-center gap-10 mb-20">
           <Atom class="w-12 h-12 text-rose-500 animate-spin" />
-          <h2 class="text-5xl md:text-8xl font-black tracking-tighter uppercase italic">Timeline_Index</h2>
+          <h2 class="text-4xl md:text-8xl font-black tracking-tighter uppercase italic">Timeline_Index</h2>
         </div>
 
         <div class="lg:col-span-12 space-y-60 relative">
@@ -209,7 +209,7 @@ onUnmounted(() => {
     <section class="py-60 px-8 relative z-10 overflow-hidden">
       <div class="max-w-7xl mx-auto text-center">
         <Star class="w-20 h-20 text-blue-500 mb-12 mx-auto animate-pulse" />
-        <h2 class="text-6xl md:text-9xl font-black tracking-tighter uppercase italic leading-none mb-40">Skill_Matrix
+        <h2 class="text-4xl md:text-9xl font-black tracking-tighter uppercase italic leading-none mb-40">Skill_Matrix
         </h2>
 
         <div class="flex flex-wrap justify-center gap-12">

@@ -28,6 +28,17 @@ const auroraBlobs = ref<HTMLElement[]>([]);
 const matrixLines = ref<SVGPathElement[]>([]);
 const matrixCenters = ref<{ x: number, y: number }[]>([]);
 
+// Helper functions for Ref Arrays to avoid "not a function" errors
+const addToCards = (el: any) => {
+  if (el && !cards.value.includes(el)) cards.value.push(el);
+};
+const addToAurora = (el: any) => {
+  if (el && !auroraBlobs.value.includes(el)) auroraBlobs.value.push(el);
+};
+const addToMatrix = (el: any) => {
+  if (el && !matrixLines.value.includes(el)) matrixLines.value.push(el);
+};
+
 // Technical Quote Logic
 const quotes = [
   "Architecture is the art of making the invisible, visible.",
@@ -177,24 +188,24 @@ onMounted(() => {
 
 <template>
   <div lang="en"
-    class="min-h-screen text-white p-6 md:p-12 lg:p-16 font-sans selection:bg-fuchsia-500/30 overflow-hidden relative">
+    class="min-h-screen text-white pt-24 p-6 md:p-12 lg:p-16 font-sans selection:bg-fuchsia-500/30 overflow-x-hidden relative">
 
     <!-- Aurora V2: MacOS Aurora (Leopard/Snow Leopard Vibe) -->
     <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden bg-[#0a0118]">
       <!-- Primary Aurora Blobs - Cosmic Purple/Blue/Pink -->
-      <div ref="(el) => auroraBlobs.push(el as HTMLElement)"
+      <div :ref="addToAurora"
         class="absolute top-[-20%] left-[-15%] w-[120%] h-[120%] bg-violet-800/40 rounded-full blur-[120px] mix-blend-screen animate-liquid-slow">
       </div>
-      <div ref="(el) => auroraBlobs.push(el as HTMLElement)"
+      <div :ref="addToAurora"
         class="absolute bottom-[-30%] right-[-15%] w-[110%] h-[130%] bg-fuchsia-700/30 rounded-full blur-[140px] mix-blend-screen animate-liquid-medium">
       </div>
-      <div ref="(el) => auroraBlobs.push(el as HTMLElement)"
+      <div :ref="addToAurora"
         class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-[90%] bg-pink-600/30 rounded-full blur-[160px] mix-blend-overlay">
       </div>
-      <div ref="(el) => auroraBlobs.push(el as HTMLElement)"
+      <div :ref="addToAurora"
         class="absolute top-[10%] right-[10%] w-[80%] h-[80%] bg-violet-400/20 rounded-full blur-[100px] mix-blend-screen animate-liquid-fast">
       </div>
-      <div ref="(el) => auroraBlobs.push(el as HTMLElement)"
+      <div :ref="addToAurora"
         class="absolute bottom-[20%] left-[20%] w-[70%] h-[70%] bg-fuchsia-900/50 rounded-full blur-[130px] mix-blend-screen">
       </div>
 
@@ -226,7 +237,7 @@ onMounted(() => {
             </span>
           </div>
 
-          <h1 class="text-[clamp(3.5rem,10vw,8rem)] font-black tracking-[-0.04em] leading-[0.85] mb-10">
+          <h1 class="text-[clamp(2.5rem,10vw,8rem)] font-black tracking-[-0.04em] leading-[0.85] mb-10">
             <span
               class="bg-gradient-to-br from-zinc-100 via-pink-200 to-fuchsia-200 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(255,255,255,0.2)]">
               {{ data.profile.name }}
@@ -242,11 +253,11 @@ onMounted(() => {
           </p>
 
           <div class="mt-16 flex flex-wrap gap-4">
-            <div ref="cards" class="flex items-center gap-3 px-6 py-4 bg-white/5 rounded-2xl border border-white/5">
+            <div class="flex items-center gap-3 px-6 py-4 bg-white/5 rounded-2xl border border-white/5">
               <MapPin class="w-5 h-5 text-violet-400" />
               <span class="text-sm font-bold text-zinc-200 tracking-tight">{{ data.profile.location }}</span>
             </div>
-            <div ref="cards"
+            <div
               class="flex items-center gap-3 px-6 py-4 bg-white/5 rounded-2xl border border-white/10 group/btn cursor-pointer hover:bg-white/10 hover:border-fuchsia-500/50 hover:scale-105 transition-all duration-500 shadow-lg hover:shadow-fuchsia-500/20">
               <Sparkles class="w-5 h-5 text-fuchsia-400 group-hover/btn:rotate-12 transition-transform" />
               <span
@@ -263,7 +274,7 @@ onMounted(() => {
       </div>
 
       <!-- Social Hub -->
-      <div ref="cards"
+      <div :ref="addToCards"
         class="md:col-span-4 iridescent-card border border-white/5 p-12 rounded-[4rem] shadow-2xl relative overflow-hidden group will-change-transform">
         <div
           class="absolute inset-0 bg-gradient-to-br from-fuchsia-600/10 to-violet-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
@@ -306,7 +317,7 @@ onMounted(() => {
       </div>
 
       <!-- Quantum Matrix -->
-      <div ref="cards"
+      <div :ref="addToCards"
         class="md:col-span-5 iridescent-card border border-white/[0.03] p-12 rounded-[4rem] shadow-2xl relative overflow-hidden group will-change-transform">
         <div
           class="absolute inset-0 bg-gradient-to-tr from-fuchsia-500/10 to-violet-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
@@ -317,7 +328,7 @@ onMounted(() => {
           class="absolute inset-0 w-full h-full pointer-events-none opacity-20 group-hover:opacity-40 transition-opacity"
           viewBox="0 0 400 600">
           <g fill="none" stroke="rgba(139,92,246,0.4)" stroke-width="1.5">
-            <path v-for="n in 12" :key="n" :ref="(el) => matrixLines.push(el as SVGPathElement)"
+            <path v-for="n in 12" :key="n" :ref="addToMatrix"
               :d="`M ${Math.random() * 400} 0 Q ${Math.random() * 400} 300 ${Math.random() * 400} 600`"
               stroke-dasharray="1000" stroke-dashoffset="1000" />
           </g>
@@ -347,7 +358,7 @@ onMounted(() => {
       </div>
 
       <!-- Experience (Timeline) -->
-      <div ref="cards"
+      <div :ref="addToCards"
         class="md:col-span-7 bg-white/95 backdrop-blur-xl p-12 md:p-16 rounded-[4rem] shadow-2xl text-black relative will-change-transform border border-white/20">
         <div class="flex items-center justify-between mb-16 relative z-10">
           <h2 class="text-4xl font-black tracking-tighter uppercase italic">Mission_Log</h2>
@@ -381,7 +392,7 @@ onMounted(() => {
       </div>
 
       <!-- Education (Frost Glass) -->
-      <div ref="cards"
+      <div :ref="addToCards"
         class="md:col-span-4 iridescent-card border border-white/5 p-12 rounded-[4rem] text-white flex flex-col justify-between group overflow-hidden relative shadow-2xl">
         <div class="absolute inset-0 bg-gradient-to-bl from-violet-600/10 to-transparent opacity-50"></div>
         <GraduationCap
@@ -396,7 +407,7 @@ onMounted(() => {
       </div>
 
       <!-- Terminal Wisdom (Restored & Radiant) -->
-      <div ref="cards"
+      <div :ref="addToCards"
         class="md:col-span-4 border border-white/10 p-12 rounded-[4rem] text-center flex flex-col items-center justify-center group relative overflow-hidden iridescent-card shadow-2xl">
         <!-- Accent Aura for Quote box -->
         <div
