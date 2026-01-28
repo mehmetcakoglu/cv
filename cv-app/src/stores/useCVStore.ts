@@ -23,7 +23,8 @@ export interface Profile {
   name: string;
   title: string;
   summary: string;
-  email: string;
+  encoded_email: string;
+  email: string; // Dynamic property
   location: string;
   linkedin: string;
   github: string;
@@ -52,7 +53,14 @@ export const useCVStore = defineStore('cv', () => {
   async function loadData() {
     try {
       const response = await fetch('/cv-data.json');
-      cvData.value = await response.json();
+      const data = await response.json();
+      
+      // Decode email
+      if (data.profile && data.profile.encoded_email) {
+        data.profile.email = atob(data.profile.encoded_email);
+      }
+      
+      cvData.value = data;
     } catch (e) {
       console.error('Failed to load CV data', e);
     } finally {
